@@ -4,10 +4,6 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
   },
-  devIndicators: {
-    appIsrStatus: false,
-    buildActivity: false,
-  },
 };
 
 export default nextConfig;
