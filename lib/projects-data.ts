@@ -93,7 +93,7 @@ export const projects: Project[] = [
     detailedDescription:
       "Voyanta is a modern full-stack travel accommodation booking platform built using the MERN-adjacent stack (MongoDB, Express.js, Node.js, EJS). It allows users to explore unique stays, create listings, upload images, make bookings, leave reviews, manage profiles, and discover locations through interactive maps powered by MapTiler. The platform features secure authentication, authorization, responsive design, booking management, account settings, OTP verification, and a seamless user experience similar to Airbnb.",
 
-    image: "/wanderlust.png",
+    image: "/voyanta.png",
 
     tags: [
       "Travel",
