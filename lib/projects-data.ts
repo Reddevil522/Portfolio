@@ -83,15 +83,15 @@ export const projects: Project[] = [
   {
     id: "2",
 
-    title: "Wanderlust",
+    title: "Voyanta",
 
-    slug: "wanderlust",
+    slug: "voyanta",
 
     description:
       "Full-stack travel accommodation booking platform inspired by Airbnb with authentication, reviews, maps, bookings, and user management",
 
     detailedDescription:
-      "Wanderlust is a modern full-stack travel accommodation booking platform built using the MERN-adjacent stack (MongoDB, Express.js, Node.js, EJS). It allows users to explore unique stays, create listings, upload images, make bookings, leave reviews, manage profiles, and discover locations through interactive maps powered by MapTiler. The platform features secure authentication, authorization, responsive design, booking management, account settings, OTP verification, and a seamless user experience similar to Airbnb.",
+      "Voyanta is a modern full-stack travel accommodation booking platform built using the MERN-adjacent stack (MongoDB, Express.js, Node.js, EJS). It allows users to explore unique stays, create listings, upload images, make bookings, leave reviews, manage profiles, and discover locations through interactive maps powered by MapTiler. The platform features secure authentication, authorization, responsive design, booking management, account settings, OTP verification, and a seamless user experience similar to Airbnb.",
 
     image: "/wanderlust.png",
 
@@ -131,9 +131,6 @@ export const projects: Project[] = [
       "Search and filter listings by location",
       "Responsive Airbnb-inspired user interface",
       "User profile management and account settings",
-      "Email OTP verification for security-sensitive actions",
-      "Password reset with OTP verification",
-      "Role-based access control and ownership validation",
       "Flash messages and robust error handling"
     ],
 
@@ -145,7 +142,6 @@ export const projects: Project[] = [
       "File upload and cloud storage integration",
       "Interactive maps and geocoding integration",
       "Session management and security best practices",
-      "Email services and OTP verification workflows",
       "Server-side rendering with EJS",
       "Production deployment and environment configuration"
     ],
