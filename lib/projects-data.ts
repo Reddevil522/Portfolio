@@ -29,58 +29,77 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
-    id: "3",
-    title: "Nexora AI",
-    slug: "nexora-ai",
-    description: "AI-powered chat application with persistent conversations and thread management using Gemini AI",
+    id: "1",
+
+    title: "MeetVerse",
+
+    slug: "meetverse",
+
+    description:
+      "Full-stack real-time video conferencing platform with secure meetings, chat, screen sharing, and participant management",
+
     detailedDescription:
-      "A modern AI-powered Chat Application built with the MERN Stack (MongoDB, Express.js, React.js, Node.js) integrated with Google Gemini AI. Nexora AI enables users to create and manage conversation threads, interact with AI in real time, store chat history, render Markdown responses, and enjoy a seamless ChatGPT-like experience with a responsive user interface.",
+      "MeetVerse is a modern full-stack video conferencing platform inspired by Google Meet and Zoom. Built using the MERN stack, it enables users to create and join meetings, communicate through real-time video and audio, share screens, exchange messages, manage participants, and collaborate seamlessly. The platform features secure authentication, meeting scheduling, waiting room support, host controls, responsive design, and a professional user experience optimized for virtual communication.",
 
-    // image: "/nexora-ai.png",
-    image: "/nexora-ai.png",
+    image: "/meetverse.png",
 
-    tags: ["AI", "MERN", "Full-Stack", "Chat Application", "Gemini AI"],
+    tags: [
+      "Video Conferencing",
+      "Real-Time Communication",
+      "WebRTC",
+      "MERN Stack",
+      "Collaboration",
+      "Meeting Platform"
+    ],
 
-    // status: "active",
-    status: "Not Deployed",
+    status: "active",
 
     techStack: [
-      "React",
+      "React.js",
       "Node.js",
-      "Express",
+      "Express.js",
       "MongoDB",
-      "Context API",
-      "Gemini AI",
-      "React Markdown",
-      "Highlight.js"
+      "Socket.io",
+      "WebRTC",
+      "JWT",
+      "Vanilla CSS",
+      "Render",
     ],
 
     features: [
-      "Real-time AI-powered conversations using Gemini AI",
-      "Thread-based chat management and history persistence",
-      "Create, view, switch, and delete conversation threads",
-      "Markdown rendering with syntax-highlighted code blocks",
-      "Responsive and modern ChatGPT-inspired interface",
-      "MongoDB-powered storage for chat history and messages"
+      "Create and join secure video meetings",
+      "Real-time video and audio communication",
+      "Screen sharing functionality",
+      "Live meeting chat and messaging",
+      "Host controls and participant management",
+      "Waiting room with host approval system",
+      "Meeting link sharing and invitations",
+      "Authentication and authorization using JWT",
+      "Responsive UI inspired by Google Meet and Zoom",
+      "Fullscreen video mode for participants",
+      "Camera and microphone controls",
+      "Meeting status indicators and notifications"
     ],
 
     learningOutcomes: [
-      "Full-stack MERN application development",
-      "Google Gemini AI API integration",
-      "RESTful API development with Express.js",
-      "MongoDB schema design and data persistence",
-      "React Context API state management",
-      "Markdown parsing and syntax highlighting implementation"
+      "WebRTC peer-to-peer communication",
+      "Real-time application development with Socket.io",
+      "Authentication and authorization implementation",
+      "Video streaming and media device management",
+      "Scalable MERN stack architecture",
+      "State management in React applications",
+      "Production deployment and optimization",
+      "Real-time event handling and synchronization",
+      "Responsive UI/UX design for collaboration platforms"
     ],
 
     links: {
-      visit: "",
-      github: "https://github.com/Reddevil522/Nexora_AI.git"
+      visit: "https://meetverse-frontend-cv6z.onrender.com",
+      github: "https://github.com/Reddevil522/MeetVerse.git"
     },
 
     author: "Gopal Kumar"
   },
-
 
 
   {
@@ -158,79 +177,62 @@ export const projects: Project[] = [
   },
 
 
-
   {
-    id: "1",
-
-    title: "MeetVerse",
-
-    slug: "meetverse",
-
-    description:
-      "Full-stack real-time video conferencing platform with secure meetings, chat, screen sharing, and participant management",
-
+    id: "3",
+    title: "Nexora AI",
+    slug: "nexora-ai",
+    description: "AI-powered chat application with persistent conversations and thread management using Gemini AI",
     detailedDescription:
-      "MeetVerse is a modern full-stack video conferencing platform inspired by Google Meet and Zoom. Built using the MERN stack, it enables users to create and join meetings, communicate through real-time video and audio, share screens, exchange messages, manage participants, and collaborate seamlessly. The platform features secure authentication, meeting scheduling, waiting room support, host controls, responsive design, and a professional user experience optimized for virtual communication.",
+      "A modern AI-powered Chat Application built with the MERN Stack (MongoDB, Express.js, React.js, Node.js) integrated with Google Gemini AI. Nexora AI enables users to create and manage conversation threads, interact with AI in real time, store chat history, render Markdown responses, and enjoy a seamless ChatGPT-like experience with a responsive user interface.",
 
-    image: "/meetverse.png",
+    // image: "/nexora-ai.png",
+    image: "/nexora-ai.png",
 
-    tags: [
-      "Video Conferencing",
-      "Real-Time Communication",
-      "WebRTC",
-      "MERN Stack",
-      "Collaboration",
-      "Meeting Platform"
-    ],
+    tags: ["AI", "MERN", "Full-Stack", "Chat Application", "Gemini AI"],
 
-    status: "active",
+    // status: "active",
+    status: "Not Deployed",
 
     techStack: [
-      "React.js",
+      "React",
       "Node.js",
-      "Express.js",
+      "Express",
       "MongoDB",
-      "Socket.io",
-      "WebRTC",
-      "JWT",
-      "Vanilla CSS",
-      "Render",
+      "Context API",
+      "Gemini AI",
+      "React Markdown",
+      "Highlight.js"
     ],
 
     features: [
-      "Create and join secure video meetings",
-      "Real-time video and audio communication",
-      "Screen sharing functionality",
-      "Live meeting chat and messaging",
-      "Host controls and participant management",
-      "Waiting room with host approval system",
-      "Meeting link sharing and invitations",
-      "Authentication and authorization using JWT",
-      "Responsive UI inspired by Google Meet and Zoom",
-      "Fullscreen video mode for participants",
-      "Camera and microphone controls",
-      "Meeting status indicators and notifications"
+      "Real-time AI-powered conversations using Gemini AI",
+      "Thread-based chat management and history persistence",
+      "Create, view, switch, and delete conversation threads",
+      "Markdown rendering with syntax-highlighted code blocks",
+      "Responsive and modern ChatGPT-inspired interface",
+      "MongoDB-powered storage for chat history and messages"
     ],
 
     learningOutcomes: [
-      "WebRTC peer-to-peer communication",
-      "Real-time application development with Socket.io",
-      "Authentication and authorization implementation",
-      "Video streaming and media device management",
-      "Scalable MERN stack architecture",
-      "State management in React applications",
-      "Production deployment and optimization",
-      "Real-time event handling and synchronization",
-      "Responsive UI/UX design for collaboration platforms"
+      "Full-stack MERN application development",
+      "Google Gemini AI API integration",
+      "RESTful API development with Express.js",
+      "MongoDB schema design and data persistence",
+      "React Context API state management",
+      "Markdown parsing and syntax highlighting implementation"
     ],
 
     links: {
-      visit: "https://your-meetverse-live-link.com",
-      github: "https://github.com/yourusername/MeetVerse.git"
+      visit: "",
+      github: "https://github.com/Reddevil522/Nexora_AI.git"
     },
 
     author: "Gopal Kumar"
   },
+
+
+
+
   // {
   //   id: "2",
   //   title: "LMS Platform",
