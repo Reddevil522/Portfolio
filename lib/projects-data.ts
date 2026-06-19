@@ -29,7 +29,7 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
-    id: "1",
+    id: "3",
     title: "Nexora AI",
     slug: "nexora-ai",
     description: "AI-powered chat application with persistent conversations and thread management using Gemini AI",
@@ -80,6 +80,9 @@ export const projects: Project[] = [
 
     author: "Gopal Kumar"
   },
+
+
+
   {
     id: "2",
 
@@ -149,6 +152,81 @@ export const projects: Project[] = [
     links: {
       visit: "https://wanderlust-50up.onrender.com",
       github: "https://github.com/Reddevil522/Wanderlust.git"
+    },
+
+    author: "Gopal Kumar"
+  },
+
+
+
+  {
+    id: "1",
+
+    title: "MeetVerse",
+
+    slug: "meetverse",
+
+    description:
+      "Full-stack real-time video conferencing platform with secure meetings, chat, screen sharing, and participant management",
+
+    detailedDescription:
+      "MeetVerse is a modern full-stack video conferencing platform inspired by Google Meet and Zoom. Built using the MERN stack, it enables users to create and join meetings, communicate through real-time video and audio, share screens, exchange messages, manage participants, and collaborate seamlessly. The platform features secure authentication, meeting scheduling, waiting room support, host controls, responsive design, and a professional user experience optimized for virtual communication.",
+
+    image: "/meetverse.png",
+
+    tags: [
+      "Video Conferencing",
+      "Real-Time Communication",
+      "WebRTC",
+      "MERN Stack",
+      "Collaboration",
+      "Meeting Platform"
+    ],
+
+    status: "active",
+
+    techStack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io",
+      "WebRTC",
+      "JWT",
+      "Vanilla CSS",
+      "Render",
+    ],
+
+    features: [
+      "Create and join secure video meetings",
+      "Real-time video and audio communication",
+      "Screen sharing functionality",
+      "Live meeting chat and messaging",
+      "Host controls and participant management",
+      "Waiting room with host approval system",
+      "Meeting link sharing and invitations",
+      "Authentication and authorization using JWT",
+      "Responsive UI inspired by Google Meet and Zoom",
+      "Fullscreen video mode for participants",
+      "Camera and microphone controls",
+      "Meeting status indicators and notifications"
+    ],
+
+    learningOutcomes: [
+      "WebRTC peer-to-peer communication",
+      "Real-time application development with Socket.io",
+      "Authentication and authorization implementation",
+      "Video streaming and media device management",
+      "Scalable MERN stack architecture",
+      "State management in React applications",
+      "Production deployment and optimization",
+      "Real-time event handling and synchronization",
+      "Responsive UI/UX design for collaboration platforms"
+    ],
+
+    links: {
+      visit: "https://your-meetverse-live-link.com",
+      github: "https://github.com/yourusername/MeetVerse.git"
     },
 
     author: "Gopal Kumar"
