@@ -191,7 +191,7 @@ export const projects: Project[] = [
     tags: ["AI", "MERN", "Full-Stack", "Chat Application", "Gemini AI"],
 
     // status: "active",
-    status: "Not Deployed",
+    status: "active",
 
     techStack: [
       "React",
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     ],
 
     links: {
-      visit: "",
+      visit: "https://nexora-ai-xqbi.onrender.com",
       github: "https://github.com/Reddevil522/Nexora_AI.git"
     },
 
