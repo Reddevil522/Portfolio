@@ -553,7 +553,7 @@ export const profileImageStyles = {
   // Text wrapper for Hero Section
   heroTextWrapper: "flex-1 flex flex-col w-full",
   // Image container
-  heroImageContainer: "relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 shrink-0 group perspective-1000",
+  heroImageContainer: "relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 shrink-0 group perspective-1000",
   // Premium glassmorphism card effect around image
   heroImageCard: "absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/20 via-transparent to-blue-500/20 backdrop-blur-3xl blur-2xl transition-all duration-700 group-hover:scale-110 group-hover:from-emerald-500/30 group-hover:to-blue-500/30",
   // The actual image wrapper
