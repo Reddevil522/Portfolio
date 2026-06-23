@@ -186,7 +186,7 @@ export const projects: Project[] = [
       "A modern AI-powered Chat Application built with the MERN Stack (MongoDB, Express.js, React.js, Node.js) integrated with Google Gemini AI. Nexora AI enables users to create and manage conversation threads, interact with AI in real time, store chat history, render Markdown responses, and enjoy a seamless ChatGPT-like experience with a responsive user interface.",
 
     // image: "/nexora-ai.png",
-    image: "/nexora-ai.png",
+    image: "/nexora.png",
 
     tags: ["AI", "MERN", "Full-Stack", "Chat Application", "Gemini AI"],
 
