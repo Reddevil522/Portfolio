@@ -2,7 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { aboutPageStyles } from "@/public/dummyStyles";
+import { aboutPageStyles, profileImageStyles } from "@/public/dummyStyles";
+import Image from "next/image";
+import ProfileImg from "@/src/assets/images/profile/name.png";
 
 export default function AboutPage() {
   const interests = [
@@ -35,6 +37,18 @@ export default function AboutPage() {
         <div className={aboutPageStyles.backgroundContainer}>
           <div className={aboutPageStyles.backgroundEffect} />
           <div className={aboutPageStyles.contentWrapper}>
+            {/* Profile Image - Float Right */}
+            <div className={`${profileImageStyles.aboutImageContainer} ${profileImageStyles.floatingAnim}`}>
+              <div className={profileImageStyles.heroImageCard} />
+              <div className={profileImageStyles.heroImageWrapper}>
+                <Image 
+                  src={ProfileImg}
+                  alt="Gopal Kumar - About Me"
+                  className={profileImageStyles.image}
+                />
+              </div>
+            </div>
+
             {/* Heading */}
             <h1 className={aboutPageStyles.mainHeading}>About Me</h1>
 

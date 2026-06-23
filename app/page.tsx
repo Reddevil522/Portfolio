@@ -3,7 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/spotlight";
-import { homePageStyles, spotlightStyles } from "@/public/dummyStyles";
+import { homePageStyles, spotlightStyles, profileImageStyles } from "@/public/dummyStyles";
+import Image from "next/image";
+import ProfileImg from "@/src/assets/images/profile/name.png";
 
 export default function HomePage() {
   return (
@@ -19,10 +21,12 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <div className={homePageStyles.heroSection}>
-        <h1 className={homePageStyles.h1}>
-          Hi, I&apos;m Gopal Kumar
-        </h1>
-        <h2 className={homePageStyles.h2}>Full-Stack Web Developer</h2>
+        <div className={profileImageStyles.heroWrapper}>
+          <div className={profileImageStyles.heroTextWrapper}>
+            <h1 className={homePageStyles.h1}>
+              Hi, I&apos;m Gopal Kumar
+            </h1>
+            <h2 className={homePageStyles.h2}>Full-Stack Web Developer</h2>
 
         {/* Callout Card */}
         <div className={homePageStyles.calloutCard.wrapper}>
@@ -54,6 +58,21 @@ export default function HomePage() {
           experiences, exploring new technologies, and transforming ideas into
           impactful products.
         </p>
+          </div>
+
+          {/* Profile Image Section */}
+          <div className={`${profileImageStyles.heroImageContainer} ${profileImageStyles.floatingAnim}`}>
+            <div className={profileImageStyles.heroImageCard} />
+            <div className={profileImageStyles.heroImageWrapper}>
+              <Image 
+                src={ProfileImg}
+                alt="Gopal Kumar - Full Stack Developer"
+                className={profileImageStyles.image}
+                priority
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Article/Video Card */}
         <div className={homePageStyles.article.wrapper}>

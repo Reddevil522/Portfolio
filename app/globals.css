@@ -6,6 +6,7 @@
 
 @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --animate-float: float 6s ease-in-out infinite;
 }
  
 @keyframes spotlight {
@@ -17,6 +18,12 @@
     opacity: 1;
     transform: translate(-50%, -40%) scale(1);
   }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 /* Custom Scrollbar for Dark Theme */

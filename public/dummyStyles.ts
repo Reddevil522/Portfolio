@@ -546,3 +546,24 @@ export const sidebarStyles = {
   bottomMenuButton: "p-2 rounded-lg text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50 transition-colors",
   bottomMenuIcon: "w-4 h-4",
 };
+
+export const profileImageStyles = {
+  // Hero Section wrapper
+  heroWrapper: "flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mt-8 md:mt-0",
+  // Text wrapper for Hero Section
+  heroTextWrapper: "flex-1 flex flex-col",
+  // Image container
+  heroImageContainer: "relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 shrink-0 group perspective-1000",
+  // Premium glassmorphism card effect around image
+  heroImageCard: "absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/20 via-transparent to-blue-500/20 backdrop-blur-3xl blur-2xl transition-all duration-700 group-hover:scale-110 group-hover:from-emerald-500/30 group-hover:to-blue-500/30",
+  // The actual image wrapper
+  heroImageWrapper: "relative w-full h-full rounded-full p-1 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black overflow-hidden shadow-2xl shadow-emerald-500/10 transition-transform duration-500 transform-gpu group-hover:scale-[1.02] group-hover:shadow-emerald-500/20",
+  // The Next.js image
+  image: "w-full h-full object-cover rounded-full object-top transition-transform duration-700 group-hover:scale-105",
+  
+  // Floating animation
+  floatingAnim: "animate-float",
+
+  // About Section specific
+  aboutImageContainer: "relative w-32 h-32 sm:w-40 sm:h-40 shrink-0 group float-right ml-6 mb-4 md:mb-6",
+};

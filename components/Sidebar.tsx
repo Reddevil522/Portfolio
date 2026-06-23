@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { sidebarStyles } from "@/public/dummyStyles";
 import { TypingAnimation } from "@/components/ui/typing-animation";
+import ProfileImg from "@/src/assets/images/profile/name.png";
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
@@ -107,8 +108,8 @@ export default function Sidebar() {
           <div className={sidebarStyles.mobileAvatarContainer}>
             <div className={sidebarStyles.mobileAvatar}>
               <Image
-                src="/name.png"
-                alt="Avatar"
+                src={ProfileImg}
+                alt="Gopal Kumar Avatar"
                 width={40}
                 height={40}
                 className={sidebarStyles.mobileAvatarImage}
@@ -141,8 +142,8 @@ export default function Sidebar() {
         <div className={sidebarStyles.desktopAvatarContainer}>
           <div className={sidebarStyles.desktopAvatar}>
             <Image
-              src="/name.png"
-              alt="Avatar"
+              src={ProfileImg}
+              alt="Gopal Kumar Avatar"
               width={48}
               height={48}
               className={sidebarStyles.desktopAvatarImage}
@@ -223,8 +224,8 @@ export default function Sidebar() {
               <div className={sidebarStyles.mobileHeaderAvatarContainer}>
                 <div className={sidebarStyles.mobileAvatar}>
                   <Image
-                    src="/name.png"
-                    alt="Avatar"
+                    src={ProfileImg}
+                    alt="Gopal Kumar Avatar"
                     width={40}
                     height={40}
                     className={sidebarStyles.mobileAvatarImage}
