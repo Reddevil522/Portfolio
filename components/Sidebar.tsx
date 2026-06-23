@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { sidebarStyles } from "@/public/dummyStyles";
 import { TypingAnimation } from "@/components/ui/typing-animation";
-import ProfileImg from "@/src/assets/images/profile/name.png";
+import ProfileImg from "@/public/name.png";
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
