@@ -97,9 +97,9 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <method.icon className={`w-6 h-6 ${method.color}`} />
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <p className="text-zinc-500 text-sm font-medium">{method.label}</p>
-                  <p className="text-zinc-200 font-bold group-hover:text-emerald-400 transition-colors">
+                  <p className="text-zinc-200 font-bold group-hover:text-emerald-400 transition-colors truncate">
                     {method.value}
                   </p>
                 </div>
