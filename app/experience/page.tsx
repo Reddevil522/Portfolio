@@ -23,43 +23,44 @@ export default function ExperiencePage() {
       content: (
         <div>
           <Badge color="bg-violet-950 text-violet-300" icon="✦" label="Current" />
-          <p className="text-neutral-200 text-sm font-medium mb-2">
+          <p className="text-zinc-200 text-lg font-bold mb-2">
             MCA Student & Full Stack Developer
           </p>
-          <p className="text-neutral-400 text-xs md:text-sm mb-5 leading-relaxed">
+          <p className="text-zinc-400 text-sm md:text-base mb-6 leading-relaxed">
             Building modern web applications with React, Next.js, Node.js, Express, MongoDB,
-            and AI technologies. Two projects shipped during the programme.
+            and AI technologies. Shipped highly functional projects during the programme.
           </p>
 
           {/* Projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Nexora AI */}
-            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
-              <p className="text-neutral-200 text-sm font-medium mb-1 flex items-center gap-1.5">
+            <div className="glass-card rounded-2xl p-5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-2xl group-hover:bg-violet-500/20 transition-all duration-300"></div>
+              <p className="text-zinc-100 text-base font-bold mb-2 flex items-center gap-2 relative z-10">
                 <span className="text-violet-400">✦</span> Nexora AI
               </p>
-              <p className="text-neutral-400 text-xs leading-relaxed mb-3">
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4 relative z-10">
                 AI-powered productivity assistant with natural language task management
                 and smart insights.
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2 relative z-10">
                 {["Next.js", "Claude API", "MongoDB", "Tailwind"].map((t) => (
                   <TechPill key={t} label={t} />
                 ))}
               </div>
             </div>
 
-            {/* Wanderlust */}
-            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
-              <p className="text-neutral-200 text-sm font-medium mb-1 flex items-center gap-1.5">
-                <span className="text-teal-400">◈</span> Wanderlust
+            {/* MeetVerse / Wanderlust (Updating to match user projects) */}
+            <div className="glass-card rounded-2xl p-5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl group-hover:bg-teal-500/20 transition-all duration-300"></div>
+              <p className="text-zinc-100 text-base font-bold mb-2 flex items-center gap-2 relative z-10">
+                <span className="text-teal-400">◈</span> MeetVerse
               </p>
-              <p className="text-neutral-400 text-xs leading-relaxed mb-3">
-                Travel planning platform with itinerary builder, destination discovery,
-                and budget tracking.
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4 relative z-10">
+                Video Conferencing platform featuring screen sharing, real-time chat, and meeting rooms.
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                {["React", "Node.js", "Express", "Maps API"].map((t) => (
+              <div className="flex flex-wrap gap-2 relative z-10">
+                {["React", "Node.js", "Socket.io", "WebRTC"].map((t) => (
                   <TechPill key={t} label={t} />
                 ))}
               </div>

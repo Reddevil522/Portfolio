@@ -7,6 +7,19 @@
 @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@utility glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+}
+
+@utility glass-card {
+  @apply bg-zinc-900/50 backdrop-blur-lg border border-zinc-800/50 hover:border-emerald-500/30 transition-all duration-300;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400;
 }
  
 @keyframes spotlight {

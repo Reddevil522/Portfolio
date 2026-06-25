@@ -1,228 +1,219 @@
 "use client";
 
-import React, { useState } from "react";
-import { contactPageStyles } from "@/public/dummyStyles";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import emailjs from "@emailjs/browser";
 import { Boxes } from "@/components/ui/background-boxes";
-
-const email = "gopalkumar20357@gmail.com";
-const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
-
-type FormField = "name" | "email" | "subject" | "message";
+import { Mail, Linkedin, Github, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [focused, setFocused] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission (e.g., send via EmailJS)
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setLoading(true);
+    setError("");
+
+    try {
+      // Setup EmailJS properly when credentials are provided
+      // await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current!, 'YOUR_PUBLIC_KEY');
+      
+      // Simulating network request for demonstration
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      setSuccess(true);
+      if (formRef.current) formRef.current.reset();
+      
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (err) {
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const getLabelClass = (field: FormField) => {
-    const isActive = focused === field || formData[field];
-    return `${contactPageStyles.formLabelBase} ${isActive
-      ? contactPageStyles.formLabelFocused
-      : contactPageStyles.formLabelUnfocused
-      }`;
-  };
+  const contactMethods = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "gopalkumar20357@gmail.com",
+      href: "mailto:gopalkumar20357@gmail.com",
+      color: "text-emerald-400"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "@Gopal",
+      href: "https://www.linkedin.com/in/gopal-kumar-2515b7381",
+      color: "text-blue-400"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "@Reddevil522",
+      href: "https://github.com/Reddevil522",
+      color: "text-zinc-100"
+    }
+  ];
 
   return (
-    <div className={contactPageStyles.pageContainer}>
-      <div className={contactPageStyles.contentContainer}>
-        {/* Header */}
-        <div className={contactPageStyles.headerContainer}>
-          <h1 className={contactPageStyles.headerTitle}>Get in Touch</h1>
-          <p className={contactPageStyles.headerSubtitle}>
-            Have a project in mind? Let&apos;s build something great together.
+    <div className="min-h-screen bg-zinc-950 pt-24 pb-16 px-6 lg:px-12 relative overflow-hidden">
+      <div className="absolute inset-0 w-full h-full bg-zinc-950 z-0 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+      <Boxes className="opacity-20 absolute inset-0 z-0" />
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-12 text-center"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-100 mb-4 tracking-tight">
+            Get in <span className="text-emerald-400">Touch</span>
+          </h1>
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+            Have a project in mind? Looking to hire? Let's build something great together.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Contact Methods */}
-        <div className={contactPageStyles.contactMethodsGrid}>
-          <a
-            href={gmailComposeUrl}
-            className={contactPageStyles.contactCard}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Contact Info Sidebar */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="space-y-6"
           >
-            <div className={contactPageStyles.contactIconContainer}>
-              <svg
-                className={contactPageStyles.contactIcon}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
+            {contactMethods.map((method, idx) => (
+              <Link 
+                key={idx} 
+                href={method.href}
+                target="_blank"
+                className="flex items-center gap-4 glass-card p-6 rounded-2xl group hover:-translate-y-1 transition-transform"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                />
-              </svg>
-            </div>
-            <div>
-              <p className={contactPageStyles.contactLabel}>Email</p>
-              <p className={contactPageStyles.contactValue}>
-                Hello@Gopal
-              </p>
-            </div>
-          </a>
+                <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <method.icon className={`w-6 h-6 ${method.color}`} />
+                </div>
+                <div>
+                  <p className="text-zinc-500 text-sm font-medium">{method.label}</p>
+                  <p className="text-zinc-200 font-bold group-hover:text-emerald-400 transition-colors">
+                    {method.value}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </motion.div>
 
-          <a
-            href="https://www.linkedin.com/in/gopal-kumar-2515b7381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={contactPageStyles.contactCard}
+          {/* Contact Form */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-2 glass-card rounded-3xl p-8 lg:p-10 relative overflow-hidden"
           >
-            <div className={contactPageStyles.contactIconContainer}>
-              <svg
-                className={contactPageStyles.contactIcon}
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </div>
-            <div>
-              <p className={contactPageStyles.contactLabel}>Linkedin</p>
-              <p className={contactPageStyles.contactValue}>@Gopal</p>
-            </div>
-          </a>
-        </div>
+            <AnimatePresence>
+              {success && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-zinc-950/90 backdrop-blur-md rounded-3xl"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.2 }}
+                  >
+                    <CheckCircle className="w-24 h-24 text-emerald-400 mb-4" />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-zinc-100 mb-2">Message Sent!</h3>
+                  <p className="text-zinc-400 text-center max-w-sm">
+                    Thank you for reaching out. I'll get back to you as soon as possible.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-        {/* Contact Form */}
-        <div className={contactPageStyles.formOuterContainer}>
-          <div className={contactPageStyles.backgroundOverlay} />
-          <Boxes className="opacity-20" />
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium text-zinc-400 ml-1">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-600"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium text-zinc-400 ml-1">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-600"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className={contactPageStyles.formContainer}
-          >
-            <div className={contactPageStyles.formGrid}>
-              {/* Name Field */}
-              <div className={contactPageStyles.formFieldContainer}>
+              <div className="space-y-2">
+                <label htmlFor="subject" className="text-sm font-medium text-zinc-400 ml-1">Subject</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => setFocused("name")}
-                  onBlur={() => setFocused(null)}
-                  className={contactPageStyles.formInput}
-                  placeholder="John Doe"
+                  id="subject"
+                  name="subject"
                   required
+                  className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-600"
+                  placeholder="Project Inquiry"
                 />
-                <label htmlFor="name" className={getLabelClass("name")}>
-                  Name
-                </label>
               </div>
 
-              {/* Email Field */}
-              <div className={contactPageStyles.formFieldContainer}>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => setFocused("email")}
-                  onBlur={() => setFocused(null)}
-                  className={contactPageStyles.formInput}
-                  placeholder="john@example.com"
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium text-zinc-400 ml-1">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
                   required
+                  rows={5}
+                  className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-600 resize-none"
+                  placeholder="Tell me about your project..."
                 />
-                <label htmlFor="email" className={getLabelClass("email")}>
-                  Email
-                </label>
               </div>
-            </div>
 
-            {/* Subject Field */}
-            <div className={contactPageStyles.formFieldContainer}>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                onFocus={() => setFocused("subject")}
-                onBlur={() => setFocused(null)}
-                className={contactPageStyles.formInput}
-                placeholder="Project Collaboration"
-                required
-              />
-              <label htmlFor="subject" className={getLabelClass("subject")}>
-                Subject
-              </label>
-            </div>
+              {error && (
+                <div className="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 p-3 rounded-lg border border-red-400/20">
+                  <AlertCircle className="w-4 h-4" />
+                  {error}
+                </div>
+              )}
 
-            {/* Message Field */}
-            <div className={contactPageStyles.formFieldContainer}>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                onFocus={() => setFocused("message")}
-                onBlur={() => setFocused(null)}
-                rows={6}
-                className={contactPageStyles.formTextarea}
-                placeholder="Tell me about your project..."
-                required
-              />
-              <label htmlFor="message" className={getLabelClass("message")}>
-                Message
-              </label>
-            </div>
-
-            {/* Submit Button */}
-            <div className={contactPageStyles.submitButtonContainer}>
-              <button type="submit" className={contactPageStyles.submitButton}>
-                <span className={contactPageStyles.submitButtonText}>
-                  {submitted ? "Sent!" : "Send Message"}
-                  <svg
-                    className={contactPageStyles.submitButtonIcon}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-                    />
-                  </svg>
-                </span>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full md:w-auto px-8 py-3 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold rounded-xl transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    Send Message
+                  </>
+                )}
               </button>
-            </div>
-          </form>
+            </form>
+          </motion.div>
         </div>
-
-        {/* Alternative Contact */}
-        <p className={contactPageStyles.alternativeText}>
-          Prefer email?{" "}
-          <a
-            href="mailto:gopalkumar20357@gmail.com"
-            className={contactPageStyles.alternativeLink}
-          >
-            gopalkumar20357@gmail.com
-          </a>
-        </p>
       </div>
     </div>
   );

@@ -3,112 +3,136 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { motion } from "motion/react";
 import { projects } from "@/lib/projects-data";
-import { projectStyles as s } from "@/public/dummyStyles";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
+import { ExternalLink, Github, Code2 } from "lucide-react";
 
 export default function ProjectsPage() {
   const router = useRouter();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 10 },
+    },
+  };
+
   return (
-    <div className={s.pageContainer}>
-      <div className={s.innerContainer}>
+    <div className="min-h-screen bg-zinc-950 pt-24 pb-16 px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className={s.header}>
-          <h1 className={s.pageTitle}>Projects</h1>
-          <p className={s.pageSubtitle}>
-            A collection of things I&apos;ve built over the years.
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-12"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-100 mb-4 tracking-tight">
+            Featured <span className="text-emerald-400">Projects</span>
+          </h1>
+          <p className="text-zinc-400 text-lg max-w-2xl">
+            A collection of robust, scalable applications I've built using modern web technologies.
           </p>
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div className={s.projectsGrid}>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+        >
           {projects.map((project) => (
-            <FollowerPointerCard
-              key={project.id}
-              title={
-                <div className={s.titleComponentContainer}>
-                  {/* <Image
-                    src={project.authorAvatar}
-                    alt={project.author}
-                    width={20}
-                    height={20}
-                    className={s.titleComponentAvatar}
-                  /> */}
-                  <span className={s.titleComponentText}>
-                    {project.title}
-                  </span>
-                </div>
-              }
-            >
-              <div onClick={() => router.push(`/projects/${project.slug}`)} className="cursor-pointer">
-                <div className={s.projectCard}>
-                  {/* Image */}
-                  <div className={s.imageContainer}>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className={s.projectImage}
-                    />
-                    {/* Status Badge */}
-                    <div className={s.statusBadgeContainer}>
-                      <span
-                        className={`${s.statusBadge} ${project.status === "active"
-                          ? s.statusActive
-                          : s.statusInactive
-                          }`}
-                      >
-                        {project.status}
-                      </span>
-                    </div>
-
-                    {/* Bookmark */}
-                    <button className={s.bookmarkButton} aria-label="Bookmark">
-                      <svg
-                        className={s.bookmarkIcon}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                        />
-                      </svg>
-                    </button>
+            <motion.div key={project.id} variants={itemVariants}>
+              <FollowerPointerCard
+                title={
+                  <div className="flex items-center space-x-2 rounded-full bg-zinc-900/90 px-3 py-1.5 shadow-lg backdrop-blur-md border border-zinc-800">
+                    <span className="text-sm font-medium text-zinc-200">
+                      View {project.title}
+                    </span>
                   </div>
-
-                  {/* Content */}
-                  <div className={s.contentSection}>
-                    <h3 className={s.projectTitle}>{project.title}</h3>
-                    <p className={s.projectDescription}>
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className={s.tagsContainer}>
-                      {project.tags.map((tag) => (
-                        <span key={tag} className={s.tag}>
-                          {tag}
+                }
+              >
+                <div 
+                  onClick={() => router.push(`/projects/${project.slug}`)} 
+                  className="h-full cursor-pointer"
+                >
+                  <div className="glass-card h-full flex flex-col rounded-3xl overflow-hidden group">
+                    {/* Image Container */}
+                    <div className="relative aspect-video w-full overflow-hidden bg-zinc-900 border-b border-zinc-800/50">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Status Badge */}
+                      <div className="absolute top-4 right-4 z-10">
+                        <span className={`px-3 py-1 text-xs font-semibold rounded-full backdrop-blur-md shadow-lg
+                          ${project.status === "active" 
+                            ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" 
+                            : "bg-zinc-500/20 text-zinc-300 border border-zinc-500/30"}`}
+                        >
+                          {project.status === "active" ? "Live" : "Development"}
                         </span>
-                      ))}
+                      </div>
                     </div>
 
-                    {/* Actions */}
-                    <div className={s.actionsContainer}>
-                      <div className={s.actionsLinksContainer}>
+                    {/* Content Section */}
+                    <div className="p-6 md:p-8 flex-1 flex flex-col">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Code2 className="w-5 h-5 text-emerald-400" />
+                        <h3 className="text-2xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
+                          {project.title}
+                        </h3>
+                      </div>
+                      
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack Badges */}
+                      <div className="flex flex-wrap gap-2 mb-6 mt-auto">
+                        {project.techStack.slice(0, 5).map((tech) => (
+                          <span 
+                            key={tech} 
+                            className="px-3 py-1 text-xs font-medium bg-zinc-900/80 border border-zinc-800 rounded-lg text-zinc-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.techStack.length > 5 && (
+                          <span className="px-3 py-1 text-xs font-medium bg-zinc-900/80 border border-zinc-800 rounded-lg text-zinc-500">
+                            +{project.techStack.length - 5} more
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Action Links */}
+                      <div className="flex items-center gap-4 pt-6 border-t border-zinc-800/50 mt-auto">
                         {project.links.visit && (
                           <a
                             href={project.links.visit}
                             onClick={(e) => e.stopPropagation()}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={s.visitButton}
+                            className="flex items-center gap-2 text-sm font-semibold text-zinc-950 bg-emerald-400 hover:bg-emerald-300 px-4 py-2 rounded-xl transition-colors shadow-lg shadow-emerald-500/20"
                           >
-                            Visit
+                            <ExternalLink className="w-4 h-4" />
+                            Live Demo
                           </a>
                         )}
                         {project.links.github && (
@@ -117,41 +141,20 @@ export default function ProjectsPage() {
                             onClick={(e) => e.stopPropagation()}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={s.otherButton}
+                            className="flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-zinc-100 bg-zinc-800/50 hover:bg-zinc-800 px-4 py-2 rounded-xl border border-zinc-700 transition-colors"
                           >
-                            GitHub
-                          </a>
-                        )}
-                        {project.links.pypi && (
-                          <a
-                            href={project.links.pypi}
-                            onClick={(e) => e.stopPropagation()}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={s.otherButton}
-                          >
-                            PyPI
-                          </a>
-                        )}
-                        {project.links.link && (
-                          <a
-                            href={project.links.link}
-                            onClick={(e) => e.stopPropagation()}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={s.otherButton}
-                          >
-                            Link
+                            <Github className="w-4 h-4" />
+                            Source Code
                           </a>
                         )}
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </FollowerPointerCard>
+              </FollowerPointerCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
