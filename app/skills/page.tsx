@@ -15,30 +15,29 @@ interface Skill {
 }
 
 const skillsData: Skill[] = [
-  { name: "React", category: "Frontend", level: 90, icon: Code2, color: "text-blue-400" },
-  { name: "Next.js", category: "Frontend", level: 85, icon: Globe, color: "text-zinc-100" },
+  { name: "React", category: "Frontend", level: 80, icon: Code2, color: "text-blue-400" },
   { name: "JavaScript", category: "Frontend", level: 95, icon: Code2, color: "text-yellow-400" },
   { name: "HTML & CSS", category: "Frontend", level: 90, icon: Layout, color: "text-orange-500" },
-  { name: "Tailwind CSS", category: "Frontend", level: 95, icon: Layout, color: "text-cyan-400" },
-  { name: "Bootstrap", category: "Frontend", level: 80, icon: Layout, color: "text-purple-500" },
-  
+  { name: "Tailwind CSS", category: "Frontend", level: 80, icon: Layout, color: "text-cyan-400" },
+  { name: "Bootstrap", category: "Frontend", level: 90, icon: Layout, color: "text-purple-500" },
+
   { name: "Node.js", category: "Backend", level: 85, icon: Server, color: "text-green-500" },
   { name: "Express.js", category: "Backend", level: 85, icon: Server, color: "text-zinc-400" },
-  { name: "REST APIs", category: "Backend", level: 90, icon: Globe, color: "text-blue-500" },
-  
+  { name: "REST APIs", category: "Backend", level: 80, icon: Globe, color: "text-blue-500" },
+
   { name: "MongoDB", category: "Database", level: 85, icon: Database, color: "text-green-500" },
   { name: "Mongoose", category: "Database", level: 80, icon: Database, color: "text-red-500" },
-  { name: "MySQL", category: "Database", level: 75, icon: Database, color: "text-blue-400" },
-  
-  { name: "Git", category: "Tools", level: 90, icon: Wrench, color: "text-orange-600" },
-  { name: "GitHub", category: "Tools", level: 90, icon: Wrench, color: "text-zinc-100" },
-  { name: "VS Code", category: "Tools", level: 95, icon: Wrench, color: "text-blue-500" },
-  { name: "Postman", category: "Tools", level: 85, icon: Wrench, color: "text-orange-500" },
-  
+
+
+  { name: "Git", category: "Tools", level: 80, icon: Wrench, color: "text-orange-600" },
+  { name: "GitHub", category: "Tools", level: 80, icon: Wrench, color: "text-zinc-100" },
+  { name: "VS Code", category: "Tools", level: 85, icon: Wrench, color: "text-blue-500" },
+
+
   { name: "AI Integration", category: "Other", level: 80, icon: Sparkles, color: "text-purple-400" },
-  { name: "Socket.io", category: "Other", level: 75, icon: Globe, color: "text-zinc-100" },
-  { name: "WebRTC", category: "Other", level: 70, icon: Globe, color: "text-blue-300" },
-  { name: "Authentication (JWT)", category: "Other", level: 85, icon: Lock, color: "text-yellow-500" },
+  { name: "Socket.io", category: "Other", level: 50, icon: Globe, color: "text-zinc-100" },
+  { name: "WebRTC", category: "Other", level: 50, icon: Globe, color: "text-blue-300" },
+  { name: "Authentication (JWT)", category: "Other", level: 75, icon: Lock, color: "text-yellow-500" },
 ];
 
 const categories: SkillCategory[] = ["All", "Frontend", "Backend", "Database", "Tools", "Other"];
@@ -73,8 +72,8 @@ export default function SkillsPage() {
               key={category}
               onClick={() => setActiveCategory(category)}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                ${activeCategory === category 
-                  ? "bg-emerald-500 text-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.3)]" 
+                ${activeCategory === category
+                  ? "bg-emerald-500 text-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
                   : "bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-600"
                 }
               `}

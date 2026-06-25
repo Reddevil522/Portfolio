@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { GraduationCap, Code, Brain, Rocket, Trophy, Server, Laptop, BookOpen } from "lucide-react";
-import ProfileImg from "@/src/assets/images/profile/name.png";
+import ProfileImg from "@/public/Pro.jpeg";
 
 const achievements = [
   { icon: Trophy, title: "10+", subtitle: "Projects Built" },
@@ -42,7 +42,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-zinc-950 pt-24 pb-16 px-6 lg:px-12 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-emerald-900/20 to-transparent pointer-events-none -z-10"></div>
-      
+
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -58,7 +58,7 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Bento Box Layout */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -67,10 +67,10 @@ export default function AboutPage() {
           {/* Main Bio Card - Spans 2 cols on md+ */}
           <motion.div variants={itemVariants} className="md:col-span-2 glass-card rounded-3xl p-8 relative overflow-hidden group">
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all duration-500"></div>
-            
+
             <div className="flex flex-col sm:flex-row gap-8 items-start relative z-10">
               <div className="w-32 h-32 shrink-0 rounded-2xl overflow-hidden border-2 border-zinc-800 shadow-xl">
-                <Image 
+                <Image
                   src={ProfileImg}
                   alt="Gopal Kumar"
                   className="w-full h-full object-cover"
@@ -79,13 +79,13 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-2xl font-bold text-zinc-100 mb-4">Who I Am</h2>
                 <p className="text-zinc-400 leading-relaxed mb-4">
-                  Hello! I'm Gopal Kumar, currently pursuing my MCA at Chandigarh University. 
-                  I am a passionate Full Stack Developer with a strong focus on building scalable, 
+                  Hello! I'm Gopal Kumar, currently pursuing my MCA at Chandigarh University.
+                  I am a passionate Full Stack Developer with a strong focus on building scalable,
                   user-centric applications using React, Node.js, Express, and MongoDB.
                 </p>
                 <p className="text-zinc-400 leading-relaxed">
-                  I enjoy solving complex problems, continuously learning new technologies, and 
-                  integrating AI to create impactful digital experiences. My goal is to build globally 
+                  I enjoy solving complex problems, continuously learning new technologies, and
+                  integrating AI to create impactful digital experiences. My goal is to build globally
                   recognized products that transform industries.
                 </p>
               </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
           {/* Education Card */}
           <motion.div variants={itemVariants} className="glass-card rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
             <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
-            
+
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-full bg-zinc-800/80 flex items-center justify-center mb-6 border border-zinc-700">
                 <GraduationCap className="text-blue-400 w-6 h-6" />
@@ -132,8 +132,8 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-wrap gap-3">
               {skills.map((skill, index) => (
-                <span 
-                  key={index} 
+                <span
+                  key={index}
                   className="px-4 py-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-sm text-zinc-300 hover:text-emerald-400 hover:border-emerald-500/30 transition-colors"
                 >
                   {skill}
@@ -142,7 +142,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-8">
               <Link href="/skills" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium inline-flex items-center gap-2 group">
-                View Detailed Skills 
+                View Detailed Skills
                 <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
               </Link>
             </div>
@@ -153,8 +153,8 @@ export default function AboutPage() {
             <Rocket className="w-10 h-10 text-emerald-400 mb-4" />
             <h3 className="text-xl font-bold text-zinc-100 mb-2">Let's Build Together</h3>
             <p className="text-zinc-400 text-sm mb-6">Always open for new opportunities and collaborations.</p>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20"
             >
               Get in Touch
