@@ -6,7 +6,8 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Spotlight } from "@/components/ui/spotlight";
-import ProfileImg from "@/src/assets/images/profile/Pro.jpeg";
+// import ProfileImg from "@/src/assets/images/profile/Pro.jpeg";
+import ProfileImg from "@/public/Pro.jpeg";
 import { Download, Github, Linkedin, Mail, Code2, Database, Layout, Server, Sparkles } from "lucide-react";
 
 export default function HomePage() {
