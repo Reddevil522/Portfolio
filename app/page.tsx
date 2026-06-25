@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Spotlight } from "@/components/ui/spotlight";
-import ProfileImg from "@/src/assets/images/profile/name.png";
+import ProfileImg from "@/src/assets/images/profile/Pro.jpeg";
 import { Download, Github, Linkedin, Mail, Code2, Database, Layout, Server, Sparkles } from "lucide-react";
 
 export default function HomePage() {
@@ -80,9 +80,9 @@ export default function HomePage() {
               key={idx}
               className="absolute top-1/2 left-1/2 hidden md:flex items-center justify-center w-12 h-12 rounded-2xl glass-card shadow-lg"
               initial={{ x: 0, y: 0, opacity: 0 }}
-              animate={{ 
-                x: item.x, 
-                y: item.y, 
+              animate={{
+                x: item.x,
+                y: item.y,
                 opacity: 1,
               }}
               transition={{
@@ -137,8 +137,8 @@ export default function HomePage() {
           <Link href="/projects" className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-zinc-100 glass-card rounded-xl transition-all hover:scale-105 active:scale-95 gap-2 group">
             View Projects
             <motion.span
-               animate={{ x: [0, 4, 0] }}
-               transition={{ duration: 1.5, repeat: Infinity }}
+              animate={{ x: [0, 4, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
             >
               &rarr;
             </motion.span>
