@@ -127,13 +127,19 @@ export default function HomePage() {
 
         {/* Action Buttons */}
         <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 w-full max-w-2xl">
-          <Link href="/resume.pdf" target="_blank" className="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-zinc-950 bg-zinc-100 rounded-xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+          <a 
+            href="/resume.pdf" 
+            target="_blank" 
+            download="Gopal_Kumar_Resume.pdf"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-zinc-950 bg-zinc-100 rounded-xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+          >
             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-emerald-400 rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
             <span className="relative flex items-center gap-2">
               <Download className="w-5 h-5" />
               Download Resume
             </span>
-          </Link>
+          </a>
 
           <Link href="/projects" className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-zinc-100 glass-card rounded-xl transition-all hover:scale-105 active:scale-95 gap-2 group">
             View Projects

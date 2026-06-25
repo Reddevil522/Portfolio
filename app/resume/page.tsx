@@ -45,14 +45,16 @@ export default function ResumePage() {
           </div>
           
           <div className="flex gap-4">
-            <Link 
+            <a 
               href="/resume.pdf" 
               target="_blank"
+              download="Gopal_Kumar_Resume.pdf"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/20"
             >
               <Download className="w-5 h-5" />
               Download PDF
-            </Link>
+            </a>
           </div>
         </motion.div>
 
@@ -66,7 +68,7 @@ export default function ResumePage() {
             >
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-zinc-800">
                 <FileText className="w-8 h-8 text-emerald-400" />
-                <h2 className="text-2xl font-bold text-zinc-100">Professional Summary</h2>
+                <h2 className="text-2xl font-bold text-zinc-100">Career Objective</h2>
               </div>
               
               <div className="prose prose-invert max-w-none">
